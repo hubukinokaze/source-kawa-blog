@@ -1,22 +1,14 @@
 general:
   branches:
-    only:
-      - source
-machine:
-  timezone: Asia/Tokyo
-  node:
-    version: 6.9.1
+    ignore:
+      - gh-pages
+
 test:
   override:
-    - echo "skip test"
+    - exit 0
+
 deployment:
-  deploy:
-    branch: source
+  staging:
+    branch: master
     commands:
-      - git config --global user.name "hubukinokaze"
-      - git config --global user.email "yudai.j.kawa@gmail.com"
-      - sed -i'' "s~https://github.com/hubukinokaze/source-kawa-blog.git~https://adbb449e29813bbc15db28fcce083430d5b78437:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git~" _config.yml
-      - rm -rf .deploy_git/
-      - hexo clean
-      - hexo generate
-      - hexo deploy
+      - ./scripts/deploy-ghpages.sh build
