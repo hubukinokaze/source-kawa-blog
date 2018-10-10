@@ -79,17 +79,5 @@ theme: flexy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:hubukinokaze/hubukinokaze.github.io.git
+  repo: https://adbb449e29813bbc15db28fcce083430d5b78437:x-oauth-basic@github.com/hubukinokaze/hubukinokaze.github.io.git
   branch: master
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - git config --global user.name "hubukinokaze"
-      - git config --global user.email "yudai.j.kawa@gmail.com"
-      - sed -i'' "s~https://github.com/hubukinokaze/hubukinokaze.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/hubukinokaze/hubukinokaze.github.io.git~" _config.yml
-      - rm -rf .deploy_git/
-      - hexo clean
-      - hexo generate
-      - hexo deploy
