@@ -1,10 +1,21 @@
+general:
+  branches:
+    only:
+      - source
+machine:
+  timezone: Asia/Tokyo
+  node:
+    version: 6.9.1
+test:
+  override:
+    - echo "skip test"
 deployment:
-  production:
-    branch: master
+  deploy:
+    branch: source
     commands:
       - git config --global user.name "hubukinokaze"
       - git config --global user.email "yudai.j.kawa@gmail.com"
-      - sed -i'' "s~https://github.com/hubukinokaze/hubukinokaze.github.io.git~https://adbb449e29813bbc15db28fcce083430d5b78437:x-oauth-basic@github.com/hubukinokaze/hubukinokaze.github.io.git~" _config.yml
+      - sed -i'' "s~https://github.com/hubukinokaze/source-kawa-blog.git~https://adbb449e29813bbc15db28fcce083430d5b78437:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git~" _config.yml
       - rm -rf .deploy_git/
       - hexo clean
       - hexo generate
