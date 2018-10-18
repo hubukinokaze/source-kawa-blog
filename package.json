@@ -1,5 +1,6 @@
 {
-  "name": "Jun's Blog",
+  "name": "source-kawa-blog",
+  "description": "Blog containing all of my progress.",
   "version": "1.0.0",
   "private": true,
   "hexo": {
