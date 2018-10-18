@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Install Hexo
-          command: npm install -g hexo-cli
+          command: sudo npm install -g hexo-cli
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
