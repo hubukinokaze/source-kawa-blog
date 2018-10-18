@@ -24,7 +24,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Generate static website
-          command: hexo generate
+          command: |
+            hexo clean
+            hexo generate
+            hexo deploy
       # - deploy:
       #     name: Deploy
       #     command: |
