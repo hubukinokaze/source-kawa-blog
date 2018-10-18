@@ -1,6 +1,6 @@
 # config
-logo: /images/svdb.png
-keywords: "sjaak van den berg, svdb, bitcoin, crypto, payment, integration, bitcoins, wordpress, betaling, webshop, front end, design, ontwerp, developer"
+logo: ./images/svdb.png
+keywords: "front end, design, developer"
 pubkey: 13DB CAA1 2633 81A7
 menu:
   Home: /
