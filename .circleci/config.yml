@@ -33,6 +33,7 @@ jobs:
               git rm -rf .
               cd ..
 
+              npm install
               hexo clean
               hexo generate
 
