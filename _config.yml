@@ -62,7 +62,7 @@ tag_map:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
+date_format: MM-DD-YYYY
 time_format: HH:mm:ss
 
 # Pagination
@@ -79,5 +79,5 @@ theme: flexy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://b476c60779a251c7b78358711728d4b8445d96f4:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git
+  repo: https://34d6f974c4940ca4f2da2ca399d2037b7d7bc15b:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git
   branch: gh-pages
