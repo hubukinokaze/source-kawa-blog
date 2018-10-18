@@ -33,7 +33,8 @@ jobs:
               git rm -rf .
               cd ..
 
-              npm run build
+              hexo clean
+              hexo generate
 
               cp -a build/. out/.
 
