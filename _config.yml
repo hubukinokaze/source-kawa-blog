@@ -83,4 +83,4 @@ deploy:
   # repo: https://34d6f974c4940ca4f2da2ca399d2037b7d7bc15b:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git
   branch: gh-pages
   message: |
-    Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }} [ci skip]
+    Site updated: {{ now('YYYY-MM-DD') }} [ci skip]
