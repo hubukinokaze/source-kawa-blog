@@ -1,14 +1,14 @@
 version: 2
 jobs:
   build:
+    branches:
+      ignore:
+        - gh-pages 
     docker:
       - image: circleci/node:8
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
-    branches:
-      ignore:
-        - gh-pages 
     steps:
       - checkout
       - run:
