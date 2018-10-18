@@ -79,5 +79,6 @@ theme: flexy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://34d6f974c4940ca4f2da2ca399d2037b7d7bc15b:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git
+  repo: git@github.com:hubukinokaze/source-kawa-blog.git
+  # repo: https://34d6f974c4940ca4f2da2ca399d2037b7d7bc15b:x-oauth-basic@github.com/hubukinokaze/source-kawa-blog.git
   branch: gh-pages
