@@ -6,6 +6,8 @@ jobs:
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
+    branches:
+      ignore: gh-pages 
     steps:
       - checkout
       - run:
