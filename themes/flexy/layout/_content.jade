@@ -10,7 +10,7 @@ if is_home()
           | Published on
           time(itemprop='datePublished', datetime= post.date.toISOString())= full_date(new Date(post.date), ' dddd, MMMM Do YYYY') + ' at ' + full_date(new Date(post.date), 'H:mm')
           | , #{reading_length} min read
-        p(itemprop='text').post-excerpt= post.intro ? post.intro : post.content.replace(/<(?:.|\n)*?>/gm, '').substr(0, 220)
+        p(itemprop='text').post-excerpt= post.intro ? post.intro : post.content.replace(/<(?:.|\n)*?>/gm, '').substr(0, 150) + '...'
   footer(itemscope, itemtype='https://schema.org/WPFooter')
     include _footer
 //- articles page

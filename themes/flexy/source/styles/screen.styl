@@ -59,7 +59,7 @@ $small-font   = 'Droid Serif', Georgia, serif
 $body-font    = 'Droid Serif', Georgia, serif
 $code-font    = 'Fira Mono', monospace, sans-serif
 
-$title-weight   = 400
+$title-weight   = 600
 $heading-weight = 700
 $small-weight   = 400
 $body-weight    = 400
@@ -74,7 +74,7 @@ $yellow        = hsla(53, 100%, 62%, 1)
 $green-yellow  = hsla(80, 72%, 54%, 1)
 $green         = hsla(119, 78%, 59%, 1)
 $blue-green    = hsla(183, 70%, 61%, 1)
-$blue          = hsla(205, 93%, 54%, 1)
+$blue          = hsla(208, 100%, 40%, 1)
 $blue-purple   = hsla(245, 73%, 68%, 1)
 $purple        = hsla(301, 67%, 57%, 1)
 $red-purple    = hsla(332, 82%, 60%, 1)
@@ -127,6 +127,7 @@ html
 
 body
   color $body-color
+  background-color $gray
   margin 0
   height 100vh
   flex-direction column // mobile first
@@ -161,6 +162,7 @@ header
   background-image url($background-header-path)
   background-position: center
   background-repeat: no-repeat
+  background-size: cover
   flex 1
   overflow hidden
   position relative
@@ -177,14 +179,19 @@ header
     text-decoration none
     &:hover
       text-decoration underline
+  a.home-link
+    font-size 1.5em
   // Blog title
   h1
-    color $title-color
     font-family $title-font
-    font-size 4.5rem
+    font-size 4.7rem
     font-weight $title-weight
     letter-spacing -1px
-    text-shadow 0 1px 6px hsla(0, 0, 0, .5)
+    text-shadow 0 1px 6px hsla(0, 0, 0, .1)
+    a
+      background: -webkit-linear-gradient($light-gray, $blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     a:hover
       text-decoration none
   // Logo
@@ -295,7 +302,8 @@ main
     p.post-excerpt
       font-size 1.62rem
       line-height 1.6em
-      margin 16px 0 0 0
+      margin 16px auto 0 auto
+      max-width 500px
     &:after
       display block
       content ''
@@ -619,7 +627,7 @@ h1
   text-indent -3px
 
 h2
-  font-size 3.9rem
+  font-size 2em
   letter-spacing -1px
   line-height 1.2em
   text-indent -2px
