@@ -41,12 +41,12 @@ Open your terminal and run the command:
 ``` bash
 npm install hexo-cli -g
 hexo init [name-of-your-website] #No brackets
-cd {name of your website}
+cd [name-of-your-website]
 npm install
 hexo server
 ```
 
-Go to your browser and go to `http://localhost:4000/`. You should be able to see your website running locally.
+Go to your browser and enter `http://localhost:4000/`. You should be able to see your website running locally.
 
 In order to safely stop the local server, just hit ctrl+c twice.
 
