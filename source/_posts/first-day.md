@@ -46,7 +46,7 @@ npm install
 hexo server
 ```
 
-Go to your browser and go to *http://localhost:4000/*. You should be able to see your website running locally.
+Go to your browser and go to `http://localhost:4000/`. You should be able to see your website running locally.
 
 In order to safely stop the local server, just hit ctrl+c twice.
 
@@ -66,4 +66,4 @@ git remote add origin [copied link] #No brackets
 git push origin master
 ```
 
-If everything turned out successeful, all of your project files should now be in your repo on GitHub.
+If everything turned out successful, all of your project files should now be in your repo on GitHub.
