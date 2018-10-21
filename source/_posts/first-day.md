@@ -59,7 +59,7 @@ Your project isn't on GitHub yet since it was newly created and git hasn't been 
 git init
 ```
 
-Now copy the .git HTTPS link from your repo on GitHub. It should be a green button labled "Clone or download". The link should look something like this: `https://github.com/username/repo-name.git`. Now commit and push your project by running the commands:
+Now copy the HTTPS link from your repo on GitHub. It should be a green button labeled "Clone or download". The link should look something like this: `https://github.com/username/repo-name.git`. Now commit and push your project by running the commands:
 
 ``` bash
 git remote add origin [copied link] #No brackets
