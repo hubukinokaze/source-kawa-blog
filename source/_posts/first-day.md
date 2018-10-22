@@ -68,6 +68,14 @@ git push origin master
 
 If everything turned out successful, all of your project files should now be in your repo on GitHub.
 
+We also need to create a separate branch to hold all the generated files the project will create when building the static website.
+
+``` bash
+git checkout -b gh-pages
+git rm -rf .
+git push origin gh-pages
+```
+
 ##### Setting Up CircleCI
 
 We finally can setup the continuous integration portion of the project. This will allow your projects to be deployed to github pages automatically whenever you push your changes. You can change settings around to your preference like to make it deploy on certain circumstances.
@@ -75,6 +83,14 @@ We finally can setup the continuous integration portion of the project. This wil
 Go to CircleCI's website and sign up for a free account with your GitHub account. After signing in, click on `Add Projects` located on the left sidebar, find your project in the list, and click on the `Sign Up Project` button. It should take you to a new page (don't worry about anything on this page) and just click on the `Start Building` button. That's it for this portion, but we still need to add some configurations so CircleCI knows what you want it to do.
 
 ##### Configuring CircleCI
+
+We have to let CircleCI know what our GitHub email and username are and to do that, go to `Environmental Variables` and create two variables.
+```
+Name: GH_EMAIL
+Value: [your-github-email] **No brackets
+Name: GH_NAME
+Value: [your-github-username] **No brackets
+```
 
 Go back to your project on GitHub and click on the `Create new file` button. Type in `.circleci/config.yml` for the name and copy/paste the code below into the body:
 
@@ -113,4 +129,43 @@ jobs:
             git config --global user.email $GH_EMAIL
             git config --global user.name $GH_NAME
             hexo deploy
+```
+
+Save the file by clicking on `Commit changes` button.
+
+##### Configuring Hexo
+
+Time to start up Sublime and open your project up (File > Open Folder). This will display the whole project tree of your files on the left sidebar. Navigate and open up *_config.yml* for editing.
+
+You can change the Site information settings to your liking.
+
+``` yml
+# Site
+title: [site title]
+subtitle:
+description: [description]
+keywords:
+author: [your name]
+language:
+timezone:
+```
+
+Fill in the github pages url so Hexo knows what the base url will be.
+
+``` yml
+# URL
+url: [website-url] #No brackets #Example: https://username.github.io/project-name/
+root: [root-url] #No brackets #Example: /project-name/
+```
+
+The last important portion is the deployment settings. This will let Hexo know which repository your project will deploy to.
+
+``` yml
+# Deployment
+deploy:
+  type: git
+  repo: [repo-link] #No brackets #https://github.com/username/repo-name.git
+  branch: gh-pages
+  message: |
+    Site updated: {{ now('YYYY-MM-DD') }} [ci skip] #[ci skip] will let CircleCI know not to touch this branch
 ```
