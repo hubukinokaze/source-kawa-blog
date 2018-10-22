@@ -87,9 +87,9 @@ Go to CircleCI's website and sign up for a free account with your GitHub account
 We have to let CircleCI know what our GitHub email and username are and to do that, go to `Environmental Variables` and create two variables.
 ```
 Name: GH_EMAIL
-Value: [your-github-email] **No brackets
+Value: [your-github-email] #No brackets
 Name: GH_NAME
-Value: [your-github-username] **No brackets
+Value: [your-github-username] #No brackets
 ```
 
 Go back to your project on GitHub and click on the `Create new file` button. Type in `.circleci/config.yml` for the name and copy/paste the code below into the body:
@@ -141,11 +141,11 @@ You can change the Site information settings to your liking.
 
 ``` yml
 # Site
-title: [site title]
+title: [site title] #No brackets
 subtitle:
-description: [description]
+description: [description] #No brackets
 keywords:
-author: [your name]
+author: [your name] #No brackets
 language:
 timezone:
 ```
