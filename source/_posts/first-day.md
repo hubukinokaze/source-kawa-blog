@@ -65,6 +65,7 @@ Now copy the HTTPS link from your repo on GitHub. It should be a green button la
 git remote add origin [copied link] #No brackets
 git push origin master
 ```
+GitHub will probably ask for credentials after trying to push your changes to GitHub.
 
 If everything turned out successful, all of your project files should now be in your repo on GitHub.
 
@@ -75,6 +76,8 @@ git checkout -b gh-pages
 git rm -rf .
 git push origin gh-pages
 ```
+
+You can close your terminal.
 
 ##### Setting Up CircleCI
 
@@ -169,3 +172,12 @@ deploy:
   message: |
     Site updated: {{ now('YYYY-MM-DD') }} [ci skip] #[ci skip] will let CircleCI know not to touch this branch
 ```
+
+For GitHub to know your newly made changes, you have to open the terminal, change directory to the root of your project, and run the command:
+
+``` bash
+git commit -a -m "updated _config.yml"
+git push origin master
+```
+
+GitHub will probably ask for credentials after trying to push your changes to GitHub.
