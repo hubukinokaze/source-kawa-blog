@@ -1,7 +1,7 @@
 ---
 title: Continuous Integration with CircleCI
 date: 2018-10-17 22:04:07
-tags: [hexo, circleci, github pages]
+tags: [hexo, circleci, githubpages]
 ---
 
 This post will be a tutorial on how to build your own static website using [Hexo](https://hexo.io/), [CircleCI](https://circleci.com/), and [GitHub Pages](https://pages.github.com/).
@@ -67,3 +67,50 @@ git push origin master
 ```
 
 If everything turned out successful, all of your project files should now be in your repo on GitHub.
+
+##### Setting Up CircleCI
+
+We finally can setup the continuous integration portion of the project. This will allow your projects to be deployed to github pages automatically whenever you push your changes. You can change settings around to your preference like to make it deploy on certain circumstances.
+
+Go to CircleCI's website and sign up for a free account with your GitHub account. After signing in, click on `Add Projects` located on the left sidebar, find your project in the list, and click on the `Sign Up Project` button. It should take you to a new page (don't worry about anything on this page) and just click on the `Start Building` button. That's it for this portion, but we still need to add some configurations so CircleCI knows what you want it to do.
+
+##### Configuring CircleCI
+
+Go back to your project on GitHub and click on the `Create new file` button. Type in `.circleci/config.yml` for the name and copy/paste the code below into the body:
+
+``` yml
+version: 2
+jobs:
+  build:
+    branches:
+      ignore: gh-pages 
+    docker:
+      - image: circleci/node:8
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+    steps:
+      - checkout
+      - run:
+          name: Install Hexo
+          command: sudo npm install -g hexo-cli
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Generate static website
+          command: |
+            hexo clean
+            hexo generate
+            git config --global user.email $GH_EMAIL
+            git config --global user.name $GH_NAME
+            hexo deploy
+```
