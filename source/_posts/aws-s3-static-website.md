@@ -31,19 +31,19 @@ First things first, you have to create an account on [AWS](https://aws.amazon.co
 
 ##### Setup AWS
 
-######## Bucket Creation
+###### Bucket Creation
 
 Head over to S3 on the AWS console and create a new bucket. The bucket name is very important. It should be the name of the website you will be creating. If you already bought a domain name, then the bucket name should be that. Example: `www.google.com`. Make sure to include the *www* as that is important as well. If not, then any name is fine until you buy a domain name. Select a region that's closest to you and click next. Don't worry about the Configure Options step and click next again. Select "Grant public read access to this bucket" under *Manage public permissions*. Click next and then create bucket.
 
-######## Bucket Overview
+###### Bucket Overview
 
 The new bucket should be listed on the table. Select it and it should take you to an overview of the bucket. Select upload. Drag and drop your files (everything from index.html to assets folders) into the window. After everything is uploaded, head over to the Properties tab.
 
-######## Properties
+###### Properties
 
 Select the *Static website hosting* card and choose *Use this bucket to host a website*. Under Index document, enter `index.html` so it knows that is your main file for the website. Save and then move onto the Permissions tab.
 
-######## Permissions
+###### Permissions
 
 Hit the radio button under *Public access*. Checkbox the *List objects* and *Read bucket permissions* to allow the public to access your website. Next click on *Bucket Policy* and copy/paste the code:
 ``` yml
